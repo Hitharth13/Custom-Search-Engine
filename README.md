@@ -22,12 +22,12 @@ A clean and modern web search application built with Spring Boot and Google Cust
 ## 📸 Screenshots
 
 ### Desktop View
-![Desktop Search](<img width="1915" height="1023" alt="image" src="https://github.com/user-attachments/assets/3df287d8-0b7b-4bc1-a10a-b36e89764a5b" />
-)
+<img width="1915" height="1023" alt="image" src="https://github.com/user-attachments/assets/074fab19-0894-4022-8aad-e717f6c5313a" />
+
 
 ### Mobile View
-![Mobile Search](![WhatsApp Image 2025-11-01 at 4 09 47 PM](https://github.com/user-attachments/assets/4d297e33-d58a-47d1-8786-16deda7d088b)
-)
+<img width="720" height="1600" alt="image" src="https://github.com/user-attachments/assets/19f62662-772f-4fd1-8a57-11e7ff7f6d61" />
+
 
 ## 🛠️ Tech Stack
 
