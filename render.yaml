@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: google-search-app
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: GOOGLE_SEARCH_API_KEY
+        sync: false
+      - key: GOOGLE_SEARCH_CX_ID
+        sync: false
