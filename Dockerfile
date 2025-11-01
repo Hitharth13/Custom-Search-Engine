@@ -1,6 +1,5 @@
 ## Build Stage
-FROM eclipse-temurin:17-jdk-alpine AS builder # Base image with JDK and Maven/Gradle
-
+FROM eclipse-temurin:17-jdk-alpine AS builder
 # Set working directory for the build
 WORKDIR /app
 
