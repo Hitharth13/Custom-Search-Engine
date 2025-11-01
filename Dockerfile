@@ -1,28 +1,28 @@
-## Build Stage
-FROM eclipse-temurin:17-jdk-alpine AS builder
-# Set working directory for the build
+# Stage 1: Build the application
+FROM maven:3.9-eclipse-temurin-17-alpine AS build
+
 WORKDIR /app
 
-# Copy source code and build files
-COPY . .
+# Copy pom.xml and download dependencies (cache layer)
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
 
-# Package the application (using Maven as an example)
-# Replace 'mvn package' with your build tool command (e.g., 'gradle build')
-RUN ./mvnw clean package -DskipTests
+# Copy source code
+COPY src ./src
 
-## Final Stage
-FROM eclipse-temurin:17-jre-alpine # Use the smaller JRE-only image for the final app 
-# Set working directory
+# Build the application
+RUN mvn clean package -DskipTests -B
+
+# Stage 2: Create runtime image
+FROM eclipse-temurin:17-jre-alpine
+
 WORKDIR /app
 
-# Copy the built JAR from the 'builder' stage
-# This assumes your build generates a JAR with a name like 'your-app-version.jar'
-# You may need to inspect the 'builder' stage's /app/target directory to get the exact name.
-# Or, if your build is a Spring Boot app using the standard plugin, you can reference the final JAR name.
-COPY --from=builder /app/target/*.jar app.jar 
+# Copy jar from build stage
+COPY --from=build /app/target/*.jar app.jar
 
-# Expose port 8080
+# Expose port
 EXPOSE 8080
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+# Run application (Render uses PORT env variable)
+CMD java -Dserver.port=${PORT:-8080} -jar app.jar
