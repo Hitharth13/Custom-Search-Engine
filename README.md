@@ -17,7 +17,7 @@ A clean and modern web search application built with Spring Boot and Google Cust
 
 ## 🚀 Demo
 
-[Live Demo]([https://your-app-name.onrender.com](https://custom-search-engine-4okx.onrender.com/)) (Add your deployed URL here)
+[Live Demo]([https://your-app-name.onrender.com](https://custom-search-engine-4okx.onrender.com/)) 
 
 ## 📸 Screenshots
 
